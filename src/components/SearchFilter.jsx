@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import HeadTheme from "./HeadTheme";
 
 export default function SearchFilter() {
   const [countryName, setCountryName] = useState("");
@@ -56,6 +57,7 @@ export default function SearchFilter() {
   return (
     <>
       <div>
+        <HeadTheme />
         <input
           type="text"
           value={countryName}
@@ -64,6 +66,7 @@ export default function SearchFilter() {
         />
 
         <select
+          label="wgggghh"
           value={regional}
           onChange={(e) => {
             setRegional(e.target.value);
@@ -71,8 +74,11 @@ export default function SearchFilter() {
           id=""
         >
           <option value="All">All</option>
+          <option value="Africa">Africa</option>
+          <option value="Americas">America</option>
           <option value="asia">Asia</option>
-          <option value="africa">Africa</option>
+          <option value="Europe">Europe</option>
+          <option value="Oceania">Oceania</option>
         </select>
 
         <div className="countries">

@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
-import HeadTheme from "./components/HeadTheme";
+import CountryDetail from "./components/CountryDetail";
 import SearchFilter from "./components/SearchFilter";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+const router = createBrowserRouter([
+  { path: "/", Element: <SearchFilter /> },
+  { path: "/countrydetail", Element: <CountryDetail /> },
+]);
 
 export default function App() {
-  return (
-    <div>
-      <HeadTheme />
-      <SearchFilter />
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
