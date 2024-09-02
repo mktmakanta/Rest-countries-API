@@ -28,7 +28,6 @@ const CountryDetail = () => {
     };
     fetchCountries();
   }, []);
-  console.log(countryData);
 
   if (loading)
     return (
@@ -40,6 +39,7 @@ const CountryDetail = () => {
 
   if (!countryThis) return <div>Country not found</div>;
 
+  console.log(countryThis);
   return (
     <div>
       <NavLink to="/">Back</NavLink>
@@ -53,7 +53,17 @@ const CountryDetail = () => {
             <div>Native Name: {countryThis.name.nativeName?.eng?.common}</div>
             <div>Population: {countryThis.population}</div>
             <div>Region: {countryThis.region}</div>
-            <div>{countryThis.borders}</div>
+            {countryThis.borders && countryThis.borders.length > 0 ? (
+              <div className="flex gap-7">
+                {countryThis.borders.map((border, index) => (
+                  <NavLink to={`/countrydetail/${border}`} key={index}>
+                    {border}
+                  </NavLink>
+                ))}
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>
