@@ -84,7 +84,11 @@ export default function SearchFilter() {
 
         <div className="countries">
           {filteredCountries.map((country, index) => (
-            <NavLink to={`/countrydetail/${index}`} key={index} className="m-6">
+            <NavLink
+              to={`/countrydetail/${country.cca3}`}
+              key={index}
+              className="m-6"
+            >
               <img
                 src={country.flags.svg}
                 alt="country flags"
