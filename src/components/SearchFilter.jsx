@@ -93,7 +93,7 @@ export default function SearchFilter() {
 
         <div className="countries ">
           {filteredCountries.map((country, index) => (
-            <div className="  w-4/6 mx-auto bg-white m-4 rounded-lg shadow-lg">
+            <div className="  w-72 mx-auto bg-white m-6 rounded-lg shadow-lg">
               <NavLink to={`/countrydetail/${country.cca3}`} key={index}>
                 <div className="rounded-t-lg ">
                   <img
@@ -102,11 +102,24 @@ export default function SearchFilter() {
                     className=" w-full h-full rounded-t-lg"
                   />
                 </div>
-                <div className="p-5">
-                  <h1 className="mt-4"> {country.name.common}</h1>
-                  <h3>Population: {country.population}</h3>
-                  <h3>Region: {country.region}</h3>
-                  <h3>Capital: {country.capital}</h3>
+                <div className="p-5 py-8 text-lg">
+                  <h1 className="my-4 text-2xl font-bold">
+                    {" "}
+                    {country.name.common}
+                  </h1>
+                  <h3>
+                    <span className="font-bold">Population: </span>
+                    {country.population}
+                  </h3>
+                  <h3>
+                    <span className="font-bold">Region: </span>
+                    {country.region}
+                  </h3>
+                  <h3>
+                    {" "}
+                    <span className="font-bold">Capital: </span>
+                    {country.capital}
+                  </h3>
                 </div>
               </NavLink>
             </div>

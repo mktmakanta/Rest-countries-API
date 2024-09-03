@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useParams } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
 const CountryDetail = () => {
   const [countryData, setCountryData] = useState([]);
@@ -43,28 +44,70 @@ const CountryDetail = () => {
   return (
     <div>
       <div className="px-4 py-2 font-bold rounded-md border border-black inline-block m-4">
-        <NavLink to="/">Back</NavLink>
+        <NavLink to="/" className="flex items-center gap-2">
+          <FaArrowLeft />
+          Back
+        </NavLink>
       </div>
       <div className="px-5 py-8">
         <div className="w-72">
           <img src={countryThis.flags.svg} alt={countryThis.name.common} />
         </div>
-        <div className="py-8">
+        <div className="py-8 text-lg">
           <h1 className="font-bold text-2xl mb-4">{countryThis.name.common}</h1>
-          <div>
-            <div>
-              <span className="font-bold">Native Name: </span>
-              {countryThis.name.nativeName?.eng?.common}
+          <div className="">
+            <div className="my-5">
+              <div>
+                <span className="font-bold">Native Name: </span>
+                {countryThis.name.nativeName?.eng?.common}
+              </div>
+              <div>
+                {" "}
+                <span className="font-bold">Population: </span>
+                {countryThis.population}
+              </div>
+              <div>
+                {" "}
+                <span className="font-bold">Region: </span>
+                {countryThis.region}
+              </div>
+              {countryThis.subregion && (
+                <div>
+                  <span className="font-bold"> Sub Region: </span>
+                  {countryThis.subregion}
+                </div>
+              )}
+              <div>
+                {" "}
+                <span className="font-bold">Capital: </span>
+                {countryThis.capital}
+              </div>
             </div>
-            <div>
-              {" "}
-              <span className="font-bold">Population: </span>
-              {countryThis.population}
-            </div>
-            <div>
-              {" "}
-              <span className="font-bold">Region:</span>
-              {countryThis.region}
+            <div className="my-5">
+              <div>
+                {" "}
+                <span className="font-bold">Top Level Domain: </span>
+                {countryThis.population}
+              </div>
+              {/* <div>
+                {" "}
+                <span className="font-bold">Currencies: </span>
+                {countryThis.currencies}
+              </div> */}
+
+              <div>
+                {" "}
+                <span className="font-bold">Language: </span>
+                {countryThis.languages && countryThis.languages.length > 0 ? (
+                  <ul className="flex">
+                    {countryThis.languages.map((language, index) => (
+                      <li key={index}>{language}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  ""
+                )}
+              </div>
             </div>
             {countryThis.borders && countryThis.borders.length > 0 ? (
               <div className="flex gap-7">
