@@ -42,17 +42,30 @@ const CountryDetail = () => {
   console.log(countryThis);
   return (
     <div>
-      <NavLink to="/">Back</NavLink>
-      <div>
+      <div className="px-4 py-2 font-bold rounded-md border border-black inline-block m-4">
+        <NavLink to="/">Back</NavLink>
+      </div>
+      <div className="px-5 py-8">
         <div className="w-72">
           <img src={countryThis.flags.svg} alt={countryThis.name.common} />
         </div>
-        <div>
-          <h1>{countryThis.name.common}</h1>
+        <div className="py-8">
+          <h1 className="font-bold text-2xl mb-4">{countryThis.name.common}</h1>
           <div>
-            <div>Native Name: {countryThis.name.nativeName?.eng?.common}</div>
-            <div>Population: {countryThis.population}</div>
-            <div>Region: {countryThis.region}</div>
+            <div>
+              <span className="font-bold">Native Name: </span>
+              {countryThis.name.nativeName?.eng?.common}
+            </div>
+            <div>
+              {" "}
+              <span className="font-bold">Population: </span>
+              {countryThis.population}
+            </div>
+            <div>
+              {" "}
+              <span className="font-bold">Region:</span>
+              {countryThis.region}
+            </div>
             {countryThis.borders && countryThis.borders.length > 0 ? (
               <div className="flex gap-7">
                 {countryThis.borders.map((border, index) => (

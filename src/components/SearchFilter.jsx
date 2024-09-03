@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import HeadTheme from "./HeadTheme";
+// import { FaMagnifyingGlass } from "react-icons/fa";
 
 export default function SearchFilter() {
   const [countryName, setCountryName] = useState("");
@@ -57,48 +58,58 @@ export default function SearchFilter() {
 
   return (
     <>
-      <div>
-        <HeadTheme />
-        <input
-          type="text"
-          value={countryName}
-          placeholder="what is your country name ?"
-          onChange={handleChange}
-        />
+      <HeadTheme />
+      <div className="bg-yellow-50/40">
+        <div className=" flex flex-col gap-10 p-4">
+          <div>
+            <input
+              className="p-3 bg-white placeholder:text-black w-full shadow-md rounded-md focus:outline-gray-300"
+              type="text"
+              value={countryName}
+              placeholder="Search for a country..."
+              onChange={handleChange}
+            />
+          </div>
 
-        <select
-          label="wgggghh"
-          value={regional}
-          onChange={(e) => {
-            setRegional(e.target.value);
-          }}
-          id=""
-        >
-          <option value="All">All</option>
-          <option value="Africa">Africa</option>
-          <option value="Americas">America</option>
-          <option value="asia">Asia</option>
-          <option value="Europe">Europe</option>
-          <option value="Oceania">Oceania</option>
-        </select>
-
-        <div className="countries">
-          {filteredCountries.map((country, index) => (
-            <NavLink
-              to={`/countrydetail/${country.cca3}`}
-              key={index}
-              className="m-6"
+          <div className="mb-4 w-1/2">
+            <select
+              placeholder="filter"
+              id="regionFilter"
+              value={regional}
+              onChange={(e) => {
+                setRegional(e.target.value);
+              }}
+              className="block w-full px-3 py-2 border border-gray-300 rounded-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             >
-              <img
-                src={country.flags.svg}
-                alt="country flags"
-                className=" w-48"
-              />
-              <h1> {country.name.common}</h1>
-              <h3>Population: {country.population}</h3>
-              <h3>Region: {country.region}</h3>
-              <h3>Capital: {country.capital}</h3>
-            </NavLink>
+              <option value="All">All</option>
+              <option value="Africa">Africa</option>
+              <option value="Americas">Americas</option>
+              <option value="Asia">Asia</option>
+              <option value="Europe">Europe</option>
+              <option value="Oceania">Oceania</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="countries ">
+          {filteredCountries.map((country, index) => (
+            <div className="  w-4/6 mx-auto bg-white m-4 rounded-lg shadow-lg">
+              <NavLink to={`/countrydetail/${country.cca3}`} key={index}>
+                <div className="rounded-t-lg ">
+                  <img
+                    src={country.flags.svg}
+                    alt="country flags"
+                    className=" w-full h-full rounded-t-lg"
+                  />
+                </div>
+                <div className="p-5">
+                  <h1 className="mt-4"> {country.name.common}</h1>
+                  <h3>Population: {country.population}</h3>
+                  <h3>Region: {country.region}</h3>
+                  <h3>Capital: {country.capital}</h3>
+                </div>
+              </NavLink>
+            </div>
           ))}
         </div>
       </div>
