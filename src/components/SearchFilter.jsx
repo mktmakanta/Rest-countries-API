@@ -58,12 +58,11 @@ export default function SearchFilter() {
 
   return (
     <>
-      <HeadTheme />
-      <div className="bg-yellow-50/40">
+      <div className="bg-yellow-50/40 dark:bg-slate-900">
         <div className=" flex flex-col gap-10 p-4">
           <div>
             <input
-              className="p-3 bg-white placeholder:text-black w-full shadow-md rounded-md focus:outline-gray-300"
+              className="p-3 bg-white dark:bg-slate-800/40 dark:placeholder:text-white placeholder:text-black w-full shadow-md rounded-md focus:outline-gray-300"
               type="text"
               value={countryName}
               placeholder="Search for a country..."
@@ -79,21 +78,33 @@ export default function SearchFilter() {
               onChange={(e) => {
                 setRegional(e.target.value);
               }}
-              className="block w-full px-3 py-2 border border-gray-300 rounded-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              className="block w-full px-3 py-2  dark:bg-slate-800/40 dark:text-white  rounded-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             >
-              <option value="All">All</option>
-              <option value="Africa">Africa</option>
-              <option value="Americas">Americas</option>
-              <option value="Asia">Asia</option>
-              <option value="Europe">Europe</option>
-              <option value="Oceania">Oceania</option>
+              <option className="dark:bg-slate-800/90" value="All">
+                All
+              </option>
+              <option className="dark:bg-slate-800/90" value="Africa">
+                Africa
+              </option>
+              <option className="dark:bg-slate-800/90" value="Americas">
+                Americas
+              </option>
+              <option className="dark:bg-slate-800/90" value="Asia">
+                Asia
+              </option>
+              <option className="dark:bg-slate-800/90" value="Europe">
+                Europe
+              </option>
+              <option className="dark:bg-slate-800/90" value="Oceania">
+                Oceania
+              </option>
             </select>
           </div>
         </div>
 
         <div className="countries ">
           {filteredCountries.map((country, index) => (
-            <div className="  w-72 mx-auto bg-white m-6 rounded-lg shadow-lg">
+            <div className="  w-72 mx-auto bg-white m-6 rounded-lg shadow-lg dark:bg-slate-800/40 dark:text-white">
               <NavLink to={`/countrydetail/${country.cca3}`} key={index}>
                 <div className="rounded-t-lg ">
                   <img
