@@ -44,78 +44,101 @@ const CountryDetail = () => {
   console.log(countryThis);
   return (
     <>
-      <div className="dark:bg-slate-900 ">
+      <div className="dark:bg-slate-900 lg:px-20 ">
         <div className="px-4 py-2 font-bold rounded-md border dark:border-white dark:text-white border-black inline-block m-4">
           <NavLink to="/" className="flex items-center gap-2">
             <FaArrowLeft />
             Back
           </NavLink>
         </div>
-        <div className="px-5 py-8 bg-yellow-50/40 dark:bg-slate-900  dark:text-white  ">
-          <div className="w-72 mx-auto">
-            <img src={countryThis.flags.svg} alt={countryThis.name.common} />
+        <div className="px-5 py-8 bg-yellow-50/40 dark:bg-slate-900  dark:text-white lg:flex min-h-screen md:px-32 lg:px-0">
+          <div className="w-72 mx-auto lg:w-1/2 md:mx-0 shadow-md h-fit">
+            <img
+              className="w-full h-full"
+              src={countryThis.flags.svg}
+              alt={countryThis.name.common}
+            />
           </div>
-          <div className="py-8 text-lg">
+          <div className="py-8 text-lg lg:ml-28 ">
             <h1 className="font-bold text-2xl mb-4">
               {countryThis.name.common}
             </h1>
-            <div className="">
-              <div className="my-5">
-                <div>
-                  <span className="font-bold">Native Name: </span>
-                  {countryThis.name.nativeName
-                    ? Object.values(countryThis.name.nativeName)[0]?.common ||
-                      ""
-                    : ""}
-                </div>
-                <div>
-                  {" "}
-                  <span className="font-bold">Population: </span>
-                  {countryThis.population.toLocaleString()}
-                </div>
-                <div>
-                  {" "}
-                  <span className="font-bold">Region: </span>
-                  {countryThis.region}
-                </div>
-                {countryThis.subregion && (
+            <div className="details">
+              <div className="lg:flex  gap-32 lg:font-light">
+                <div className="my-5 lg:space-y-3 ">
                   <div>
-                    <span className="font-bold"> Sub Region: </span>
-                    {countryThis.subregion}
+                    <span className="font-bold lg:font-semibold">
+                      Native Name:{" "}
+                    </span>
+                    {countryThis.name.nativeName
+                      ? Object.values(countryThis.name.nativeName)[0]?.common ||
+                        ""
+                      : ""}
                   </div>
-                )}
-                <div>
-                  {" "}
-                  <span className="font-bold">Capital: </span>
-                  {countryThis.capital}
-                </div>
-              </div>
-              <div className="my-5">
-                <div>
-                  {" "}
-                  <span className="font-bold">Top Level Domain: </span>
-                  {countryThis.tld.join(", ")}
-                </div>
-                <div>
-                  {" "}
-                  <span className="font-bold">Currencies: </span>
-                  {Object.values(countryThis.currencies || {})
-                    .map((currency) => currency.name)
-                    .join(", ")}
+                  <div>
+                    {" "}
+                    <span className="font-bold lg:font-semibold">
+                      Population:{" "}
+                    </span>
+                    {countryThis.population.toLocaleString()}
+                  </div>
+                  <div>
+                    {" "}
+                    <span className="font-bold lg:font-semibold">Region: </span>
+                    {countryThis.region}
+                  </div>
+                  {countryThis.subregion && (
+                    <div>
+                      <span className="font-bold lg:font-semibold">
+                        {" "}
+                        Sub Region:{" "}
+                      </span>
+                      {countryThis.subregion}
+                    </div>
+                  )}
+                  <div>
+                    {" "}
+                    <span className="font-bold lg:font-semibold">
+                      Capital:{" "}
+                    </span>
+                    {countryThis.capital}
+                  </div>
                 </div>
 
-                <div className="flex gap-2">
-                  <span className="font-bold">Languages: </span>
-                  {countryThis.languages ? (
-                    <span>
-                      {Object.values(countryThis.languages).join(", ")}
+                <div className="my-5 lg:space-y-3 ">
+                  <div>
+                    {" "}
+                    <span className="font-bold lg:font-semibold">
+                      Top Level Domain:{" "}
                     </span>
-                  ) : (
-                    "N/A"
-                  )}
+                    {countryThis.tld.join(", ")}
+                  </div>
+                  <div>
+                    {" "}
+                    <span className="font-bold lg:font-semibold">
+                      Currencies:{" "}
+                    </span>
+                    {Object.values(countryThis.currencies || {})
+                      .map((currency) => currency.name)
+                      .join(", ")}
+                  </div>
+
+                  <div className="flex gap-2">
+                    <span className="font-bold lg:font-semibold ">
+                      Languages:{" "}
+                    </span>
+                    {countryThis.languages ? (
+                      <span>
+                        {Object.values(countryThis.languages).join(", ")}
+                      </span>
+                    ) : (
+                      "N/A"
+                    )}
+                  </div>
                 </div>
               </div>
-              <div>
+
+              <div className="borders">
                 <div className="font-bold text-lg mt-8">Border Countries:</div>
                 {countryThis.borders && countryThis.borders.length > 0 ? (
                   <div className="flex gap-3 my-4 flex-wrap">
