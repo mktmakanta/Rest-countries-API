@@ -13,10 +13,11 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 - [Tools]()
   - [Git/Github](https://github.com/mktmakanta)
   - [Font](https://fonts.google.com/)
+  - [Fontaweseome cons](https://fontawesome.com/search)
 
 ### About the app
 
-Users should be able to:
+Users will be able to:
 
 - See all countries from the API on the homepage
 - Search for a country using an `input` field
@@ -29,12 +30,10 @@ Users should be able to:
 
 ![](src/assets/result.jpg)
 
-Above is the result of app
-
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [frontendmentor](https://www.frontendmentor.io/solutions/rest-countries-api-with-theme-switcher-JyKASSFLHT)
+- Live Site URL: [Rest-countries-api](https://rest-countries-api21.vercel.app/)
 
 ### What I learned
 
