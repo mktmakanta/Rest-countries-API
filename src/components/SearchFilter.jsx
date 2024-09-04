@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import HeadTheme from "./HeadTheme";
+import { motion } from "framer-motion";
 // import { FaMagnifyingGlass } from "react-icons/fa";
 
 export default function SearchFilter() {
@@ -58,11 +58,11 @@ export default function SearchFilter() {
 
   return (
     <>
-      <div className="bg-yellow-50/40 dark:bg-slate-900">
-        <div className=" flex flex-col gap-10 p-4">
-          <div>
+      <div className="bg-yellow-50/40 dark:bg-slate-900 lg:px-16">
+        <div className=" flex flex-col gap-10 p-4 lg:flex-row lg:justify-between">
+          <div className="lg:w-2/5">
             <input
-              className="p-3 bg-white dark:bg-slate-800/40 dark:placeholder:text-white placeholder:text-black w-full shadow-md rounded-md focus:outline-gray-300"
+              className="p-3  bg-white dark:bg-slate-800/40 dark:placeholder:text-white placeholder:text-black w-full shadow-md rounded-md focus:outline-gray-300"
               type="text"
               value={countryName}
               placeholder="Search for a country..."
@@ -70,7 +70,7 @@ export default function SearchFilter() {
             />
           </div>
 
-          <div className="mb-4 w-1/2">
+          <div className="mb-4 w-1/2 lg:w-1/5">
             <select
               placeholder="filter"
               id="regionFilter"
@@ -102,11 +102,16 @@ export default function SearchFilter() {
           </div>
         </div>
 
-        <div className="countries ">
+        <motion.div className="countries lg:flex lg:flex-wrap">
           {filteredCountries.map((country, index) => (
-            <div className="  w-72 mx-auto bg-white m-6 rounded-lg shadow-lg dark:bg-slate-800/40 dark:text-white">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="  w-72 mx-auto bg-white m-6 rounded-lg shadow-lg dark:bg-slate-800/40 dark:text-white"
+            >
               <NavLink to={`/countrydetail/${country.cca3}`} key={index}>
-                <div className="rounded-t-lg ">
+                <div className="rounded-t-lg h-40 w-full ">
                   <img
                     src={country.flags.svg}
                     alt="country flags"
@@ -133,9 +138,9 @@ export default function SearchFilter() {
                   </h3>
                 </div>
               </NavLink>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </>
   );
