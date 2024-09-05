@@ -101,6 +101,7 @@ export default function SearchFilter() {
               </option>
             </select>
           </div>
+          <div>this is for confirmation</div>
         </div>
 
         <motion.div className="countries md:flex md:flex-wrap gap-2">
