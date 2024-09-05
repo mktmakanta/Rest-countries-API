@@ -46,13 +46,13 @@ const CountryDetail = () => {
     <>
       <div className="dark:bg-slate-900 lg:px-20 ">
         <div className="px-4 py-2 font-bold rounded-md border dark:border-white dark:text-white border-black inline-block m-4">
-          <NavLink to="/" className="flex items-center gap-2">
+          <NavLink to="/" className="flex items-center gap-2 cursor-pointer">
             <FaArrowLeft />
             Back
           </NavLink>
         </div>
         <div className="px-5 py-8 bg-yellow-50/40 dark:bg-slate-900  dark:text-white lg:flex min-h-screen md:px-32 lg:px-0">
-          <div className="w-72 mx-auto lg:w-1/2 md:mx-0 shadow-md h-fit">
+          <div className="w-72 mx-auto lg:w-1/2 md:mx-0 shadow-md h-fit object-cover">
             <img
               className="w-full h-full"
               src={countryThis.flags.svg}

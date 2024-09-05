@@ -111,7 +111,7 @@ export default function SearchFilter() {
                   <img
                     src={country.flags.svg}
                     alt="country flags"
-                    className=" w-full h-full rounded-t-lg"
+                    className=" w-full h-full rounded-t-lg object-cover"
                   />
                 </div>
                 <div className="p-5 py-8 text-lg">
